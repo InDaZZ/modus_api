@@ -11,6 +11,7 @@ const anonimOrderSchema = mongoose.Schema({
         type: String,
         minlength: 2,
         maxlength: 60,
+        required: true,
     }]
     ,
     owner: {

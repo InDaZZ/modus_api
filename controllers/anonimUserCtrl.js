@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
-const anonimUser = require('../model/anonimUser')
+const anonimUser = require('../model/anonimUser');
+
 
 const creatUser = (req, res, next) => {
     anonimUser.find({})

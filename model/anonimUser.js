@@ -7,6 +7,11 @@ const anonimUserSchema = mongoose.Schema({
         minlength: 2,
         maxlength: 30,
         default: 'Гость',
+    },
+    phone: {
+        type: String,
+        minlength: 2,
+        maxlength: 30,
     }
 });
 module.exports = mongoose.model('anonimUser', anonimUserSchema);

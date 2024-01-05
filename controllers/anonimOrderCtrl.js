@@ -1,15 +1,24 @@
-const anonimOrder = require('../model/anonimOrder')
+const anonimOrder = require('../model/anonimOrder');
+const anonimUser = require('../model/anonimUser');
+
 const createOrder = (req, res, next) => {
     const {
-        products
+        products,
+        phone,
     } = req.body;
     const owner = req.user;
-    
-    anonimOrder.create({ products,owner })
-    .then((oreder) => res.status(201).send(oreder))
-    .catch((err) => {
-       console.log(err)
-      });
+    anonimUser.findByIdAndUpdate(owner,{phone:phone})
+        .then((user) => {
+            console.log(user)
+        })
+    anonimOrder.create({ products, owner })
+        .then((oreder) => {
+            console.log(oreder)
+            res.status(201).send(oreder)
+        })
+        .catch((err) => {
+            console.log(err)
+        });
 }
 
 module.exports = {
