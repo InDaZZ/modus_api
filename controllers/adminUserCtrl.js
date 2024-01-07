@@ -1,8 +1,6 @@
 const admiUser = require('../model/adminUser');
 const login = (req, res, next) => {
     const { name, password } = req.body;
-    console.log(name)
-    console.log(password)
     admiUser.findOne({ name: 'modusAdmin' })
         .then((user) => {
             if (user.password === password) {

@@ -11,6 +11,10 @@ const adminUserSchema = mongoose.Schema({
         type: String,
         minlength: 4,
         maxlength: 50,
+    },
+    admin: {
+        type: Boolean,
+        default: true,
     }
 });
 module.exports = mongoose.model('adminUser', adminUserSchema);

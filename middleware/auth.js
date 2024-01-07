@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
   const authorization = req.cookies.jwt;//После написания фронта буду брать токен из localstorage
 
   if (!authorization) {
-    return console.log(err);
+    return console.log();
   }
 
   let payload;

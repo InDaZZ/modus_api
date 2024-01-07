@@ -29,12 +29,11 @@ const createRoll = (req, res, next) => {
 
 const deleteRoll = (req, res, next) => {
     const { rollId } = req.body;
-    console.log(rollId)
     if (rollId !== '') {
         roll.findByIdAndDelete(rollId)
             .then((deletedRoll) => {
                 if (deletedRoll !== null) {
-                  return res.send(`${deletedRoll} удалено`)
+                    return res.send(`${deletedRoll} удалено`)
                 }
                 throw new Error('такого имени нет');
             })
@@ -50,7 +49,6 @@ const deleteRoll = (req, res, next) => {
 const findAll = (req, res, next) => {
     roll.find({})
         .then((rols) => {
-            console.log(rols)
             res.send(rols)
         })
 }
