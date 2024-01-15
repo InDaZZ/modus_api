@@ -6,8 +6,10 @@ const orderRouter = require('./orderRouter');
 const adminRoutet = require('./adminRouter');
 const rollRouter = require('./rollRoutet');
 const pizzaRoutet = require('./pizzaRouter')
+const protectedAdminRouter = require('./protectedAdminRouter');
 
 const auth = require('../middleware/auth');
+const adminAuth = require('../middleware/authAdmin');
 
 
 router.use('/', signupRouter);
@@ -19,6 +21,8 @@ router.use('/', usersRouter);
 router.use('/', orderRouter);
 router.use('/', rollRouter);
 router.use('/', pizzaRoutet);
+router.use(adminAuth);
+router.use('/', protectedAdminRouter);
 
 
 
