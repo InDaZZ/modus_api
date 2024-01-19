@@ -1,14 +1,15 @@
 const { model } = require('mongoose');
 const nodeMailer = require('nodemailer');
 const transporter = nodeMailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
+    host: 'smtp.mail.ru',
+    port: 465,
+    secure: true,
     auth: {
-        user: 'dexter.reinger61@ethereal.email',
-        pass: 'qWEwPTtKz7RW6YKV7N'
+        user: 'f-k-87@list.ru',
+        pass: 'SsydPpu1es1JRNd2XXCy'
     },
 },
-    { from: '<dexter.reinger61@ethereal.email>' },
+    { from: '<f-k-87@list.ru>' },
 );
 
 const mailer = masagge => {
