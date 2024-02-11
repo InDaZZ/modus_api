@@ -14,13 +14,12 @@ const adminAuth = require('../middleware/authAdmin');
 
 router.use('/', signupRouter);
 router.use('/', adminRoutet);
-
-
-router.use(auth);
-router.use('/', usersRouter);
-router.use('/', orderRouter);
 router.use('/', rollRouter);
 router.use('/', pizzaRoutet);
+router.use(auth);
+//router.use('/', usersRouter);
+router.use('/', orderRouter);
+
 router.use(adminAuth);
 router.use('/', protectedAdminRouter);
 

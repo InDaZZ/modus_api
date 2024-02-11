@@ -47,6 +47,7 @@ const deleteRoll = (req, res, next) => {
 }
 
 const findAll = (req, res, next) => {
+    console.log(req.body)
     roll.find({})
         .then((rols) => {
             res.send(rols)

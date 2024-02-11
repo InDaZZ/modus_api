@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
-  const authorization = req.cookies.jwt;//После написания фронта буду брать токен из localstorage
+  const authorization = req.cookies.jwt;//После написания фронта буду брать токен из localstorage\
+  
 
   if (!authorization) {
     return console.log();
