@@ -36,10 +36,9 @@ const rollSchema = mongoose.Schema({
         minlength: 3,
         maxlength: 10,
     },
-    type: {
-        type: String,
-        minlength: 3,
-        maxlength: 100,
+    sale: {
+        type: Number,
+        default: 0,
     }
 });
 module.exports = mongoose.model('roll', rollSchema);

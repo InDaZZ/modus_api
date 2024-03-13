@@ -18,6 +18,9 @@ const anonimOrderSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'anonimUser',
+    },
+    phone: {
+        type: String,
     }
 });
 module.exports = mongoose.model('anonimOrder', anonimOrderSchema);

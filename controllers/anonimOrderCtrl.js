@@ -7,22 +7,25 @@ const createOrder = (req, res, next) => {
         products,
         phone,
     } = req.body;
+    //console.log(req.body)
+    console.log(phone, 8888888888888888)
     const owner = req.user;
     anonimUser.findByIdAndUpdate(owner, { phone: phone })
         .then((user) => {
-            console.log(user)
+            //console.log(user)
         })
-    anonimOrder.create({ products, owner })
-        .then((oreder) => {
-            
-            console.log(oreder.products.join(' '))
+    anonimOrder.create({ products, owner, phone })
+        .then((order) => {
+            console.log(order.phone, 99999999)
+
+
             const masagge = {
                 to: 'f-k-87@list.ru',
                 subject: 'новый заказ',
-                text: oreder.products.join(' '),
+                text: order.products.join(' ') + `Номер Клиента${order.phone}`,
             }
             mailer(masagge)
-            res.status(201).send(oreder)
+            res.status(201).send(order)
         })
         .catch((err) => {
             console.log(err)
