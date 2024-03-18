@@ -7,8 +7,6 @@ const createOrder = (req, res, next) => {
         products,
         phone,
     } = req.body;
-    //console.log(req.body)
-    console.log(phone, 8888888888888888)
     const owner = req.user;
     anonimUser.findByIdAndUpdate(owner, { phone: phone })
         .then((user) => {
@@ -16,9 +14,6 @@ const createOrder = (req, res, next) => {
         })
     anonimOrder.create({ products, owner, phone })
         .then((order) => {
-            console.log(order.phone, 99999999)
-
-
             const masagge = {
                 to: 'f-k-87@list.ru',
                 subject: 'новый заказ',

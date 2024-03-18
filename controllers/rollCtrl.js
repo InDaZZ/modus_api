@@ -9,7 +9,7 @@ const createRoll = (req, res, next) => {
         carbohydrates,
         availability,
         cost,
-        type,
+        sale
     } = req.body;
 
     roll.create({
@@ -20,17 +20,18 @@ const createRoll = (req, res, next) => {
         carbohydrates,
         availability,
         cost,
-        type,
+        sale,
     })
         .then((newRoll) => {
             res.send(newRoll)
         })
+        .catch(err => console.log(err))
 };
 
 const deleteRoll = (req, res, next) => {
-    const { rollId } = req.body;
-    if (rollId !== '') {
-        roll.findByIdAndDelete(rollId)
+    const { _id } = req.body;
+    if (_id !== '') {
+        roll.findByIdAndDelete(_id)
             .then((deletedRoll) => {
                 if (deletedRoll !== null) {
                     return res.send(`${deletedRoll} удалено`)
